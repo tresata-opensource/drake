@@ -1,11 +1,15 @@
-(defproject factual/drake "1.0.3"
+(require 'cemerick.pomegranate.aether)
+(cemerick.pomegranate.aether/register-wagon-factory!
+  "http" #(org.apache.maven.wagon.providers.http.HttpWagon.))
+
+(defproject factual/drake "1.0.3-tres-SNAPSHOT"
   :description "Drake: the data processing workflow tool (a.k.a. 'make for data')"
   :url "https://github.com/Factual/drake"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :scm {:name "git"
         :url "https://github.com/Factual/drake"}
-  :deploy-repositories [["clojars" {:creds :gpg}]]
+  :repositories [["snapshots" "http://server02:8080/repository/snapshots"] ["releases" "http://server02:8080/repository/internal"]]
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/core.memoize "0.5.6"]
                  [factual/drake-interface "0.0.1"]
@@ -27,7 +31,7 @@
                  [factual/c4 "0.2.1"]
                  [hdfs-clj "0.1.3"]    ;; for HDFS support
                  [org.apache.hadoop/hadoop-core "0.20.2"]
-                 [clj-aws-s3 "0.3.10" :exclusions [joda-time]]    ;; for AWS S3 support
+                 [clj-aws-s3 "0.3.10-tres-SNAPSHOT" :exclusions [joda-time]]    ;; for AWS S3 support
                  ;; for plugins
                  [com.cemerick/pomegranate "0.2.0" :exclusions [org.apache.httpcomponents/httpcore]]]
   :test-selectors {:regression   :regression
