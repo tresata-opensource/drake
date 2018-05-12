@@ -9,7 +9,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :scm {:name "git"
         :url "https://github.com/Factual/drake"}
-  :repositories [["snapshots" "http://server02:8080/repository/snapshots"] ["releases" "http://server02:8080/repository/internal"]]
+  :repositories [["libs-snapshot" "http://server02.tresata.com:8081/artifactory/libs-snapshot"] ["libs-release" "http://server02.tresata.com:8081/artifactory/libs-release"]]
+  :deploy-repositories [["snapshots" "http://server02.tresata.com:8081/artifactory/oss-libs-snapshot-local"] ["releases" "http://server02.tresata.com:8081/artifactory/oss-libs-release-local"]]
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/core.memoize "0.5.6"]
                  [factual/drake-interface "0.0.1"]
